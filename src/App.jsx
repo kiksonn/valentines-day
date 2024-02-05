@@ -17,9 +17,11 @@ const App = () => {
     }));
 
     setButtonTextSize((prevSize) => prevSize * 1.5);
-
-    setIsVisible(!isVisible)
   };
+
+  const visible = () => {
+    setIsVisible(!isVisible)
+  }
 
   const Words = ["Nie", "Jesteś pewna?", "Na pewno?", "Proszę", "Pomyśl o tym"];
 
@@ -32,7 +34,7 @@ const App = () => {
     <div className="h-[100vh] flex flex-col justify-center items-center">
       <div className={isVisible ? "block" : "hidden"}>
         <img className="h-[200px]" src={img1} alt="" />
-        <h1 className="text-2xl mb-4">Zostaniesz moją walentynką</h1>
+        <h1 className="text-2xl mb-4">Zostaniesz moją walentynką?</h1>
       </div>
       <div  className={isVisible ? "hidden" : "block"}>
         <img className="h-[200px]" src={img2} alt="" />
@@ -42,6 +44,8 @@ const App = () => {
         <button
           className="bg-green-500 px-4 py-2 text-white rounded-md mr-1"
           style={buttonStyle}
+
+          onClick={visible}
         >
           Tak
         </button>
